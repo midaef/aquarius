@@ -50,19 +50,19 @@ class glass:
 			dg.append('║      ║')
 
 		if self.vl >= 3 * d:
-			dg.append('║░░░░░░║')
+			dg.append('║░░░░░░║' + ' ' * 5 + 'Fill: ' + str(self.getFill()))
 		else:
-			dg.append('║      ║')
+			dg.append('║      ║' + ' ' * 5 + 'Fill: ' + str(self.getFill()))
 
 		if self.vl >= 4 * d:
-			dg.append('║░░░░░░║')
+			dg.append('║░░░░░░║' + ' ' * 5 + 'Volume: ' + str(self.getVolume()))
 		else:
-			dg.append('║      ║')
+			dg.append('║      ║' + ' ' * 5 + 'Volume: ' + str(self.getVolume()))
 
 		if self.vl >= 5 * d:
-			dg.append('║░░░░░░║')
+			dg.append('║░░░░░░║' + ' ' * 5 + 'Glass ' + str(glasses.index(self) + 1))
 		else:
-			dg.append('║      ║')
+			dg.append('║      ║' + ' ' * 5 + 'Glass ' + str(glasses.index(self) + 1))
 
 		if self.vl >= 6 * d:
 			dg.append('║≈≈≈≈≈≈║')
@@ -88,27 +88,22 @@ class glass:
 def main():
 	cls()
 	kol = enter(text = 'Amount of glasses: ')
-	# kol = int(input('Amount of glasses: '))
+
 	for i in range(kol):
 		glasses.append(glass())
-		# glasses[i].draw()
-		# p('')
+
 	for i in range(1, kol + 1):
 		v = enter(text = 'Volume of ' + str(i) + ' glass: ')
 		glasses[i - 1].setVolume(v)
-		# v = int(input('Volume of ' + str(i) + ' glass: '))
 		vl = enter(glasses[i - 1].getVolume(), text = 'Fill of ' + str(i) + ' glass: ')
-		# vl = int(input('Fill of ' + str(i) + ' glass: '))
-		
 		glasses[i - 1].setFill(vl)
 	
+	cls()
+	p()
+
 	for g in glasses:
 		g.draw()
-		p()
-
-	
-
-
+		p('\n\n')
 
 
 
