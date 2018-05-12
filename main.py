@@ -73,17 +73,35 @@ class glass:
 		for i in dg:
 			p(i)
 
+
 	def getVolume(self):
 		return self.v
+
 
 	def setVolume(self, v):
 		self.v = v
 
+
 	def getFill(self):
 		return self.vl
 
+
 	def setFill(self, vl):
 		self.vl = vl
+
+
+	def increase(self, n):
+		if self.v >= self.vl + n:
+			self.vl += n
+		else:
+			self.vl = self.v
+
+	def decrease(self, n):
+		if self.vl >= n:
+			self.vl -= n
+		else:
+			self.vl = 0
+
 
 def main():
 	cls()
@@ -101,10 +119,14 @@ def main():
 	cls()
 	p()
 
-	for g in glasses:
-		g.draw()
-		p('\n\n')
 
+	while True:
+		for g in glasses:
+			g.draw()
+			p('\n\n')
+
+		input()
+		# v = enter(max = 3)
 
 
 if __name__ == '__main__':
